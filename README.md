@@ -84,8 +84,8 @@ Explora comunicação entre nós por sockets TCP, relógios lógicos de Lamport,
 
 <div align="center">
 
-<img height="170" src="https://github-stats-extended.vercel.app/api?username=Derson396&show_icons=true&theme=tokyonight&hide_border=true" alt="Estatísticas do GitHub" />
-<img height="170" src="https://github-stats-extended.vercel.app/api/top-langs/?username=Derson396&layout=compact&theme=tokyonight&hide_border=true" alt="Linguagens mais utilizadas" />
+<img height="170" src="./profile/stats.svg" alt="Estatísticas do GitHub" />
+<img height="170" src="./profile/top-langs.svg" alt="Linguagens mais utilizadas" />
 
 </div>
 
