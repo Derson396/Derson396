@@ -73,3 +73,31 @@ jobs:
             git commit -m "chore: refresh profile stats cards"
             git push
           fi
+
+      - name: Auditar commits por repositorio
+        env:
+          GH_TOKEN: ${{ secrets.STATS_PAT }}
+        run: |
+          gh api graphql \
+            -f query='
+              query($login: String!) {
+                user(login: $login) {
+                  contributionsCollection {
+                    totalCommitContributions
+                    commitContributionsByRepository(maxRepositories: 100) {
+                      repository {
+                        nameWithOwner
+                      }
+                      contributions(first: 1) {
+                        totalCount
+                      }
+                    }
+                  }
+                }
+              }
+            ' \
+            -f login=Derson396 \
+            --jq '.data.user.contributionsCollection |
+              "Total: \(.totalCommitContributions)",
+              (.commitContributionsByRepository[] |
+                "\(.repository.nameWithOwner): \(.contributions.totalCount) commits")'
