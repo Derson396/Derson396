@@ -38,15 +38,15 @@ jobs:
           token: ${{ secrets.STATS_PAT }}
           fail_on_error: 'true'
 
-      # Keep language breakdown public-only to avoid disclosing private technologies.
       - name: Generate public top languages card
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=Derson396&layout=compact&theme=tokyonight&hide_border=true
+          options: username=Derson396&layout=compact&theme=tokyonight&hide_border=true&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&hide=PureBasic,CSS&langs_count=8
           path: profile/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: 'true'
+
 
       - name: Publish generated cards
         shell: bash
